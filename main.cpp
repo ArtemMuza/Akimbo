@@ -1,11 +1,13 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include <QQuickView>
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
+    QQuickWindow::setGraphicsApi(QSGRendererInterface::OpenGL);
     QQmlApplicationEngine engine;
     const QUrl url(u"qrc:/Akimbo/main.qml"_qs);
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
